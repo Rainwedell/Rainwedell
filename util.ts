@@ -1,7 +1,7 @@
 export class Util {
   /**
    * 15 分
-   * 判断一个变量是否是数字
+   * 判断一个变量是否是数字类型
    * e.g. isNumber(4) === true, isNumber({ value: 5}) === false, isNumber('0') === false
    * @param value 
    */
@@ -13,7 +13,7 @@ export class Util {
   /**
    * 15 分
    * 千分位分隔符，用英文逗号隔开。
-   * 需要考虑负数、小数
+   * 需要考虑负数、小数，小数部分不需要分隔
    * e.g. formatNumber(-1000000.3232) === '-1,000,000.3232'
    * @param num 
    */
@@ -30,7 +30,7 @@ export class Util {
    * @param template 模板
    * @param data 填充模板的数据
    */
-  public fillText(template: string, data: object): string {
+  public static fillText(template: string, data: object): string {
     // TODO 请在这里补充
     return '';
   }
@@ -38,7 +38,7 @@ export class Util {
   /**
    * 15 分
    * 判断是否是回文字符串
-   * 只考虑字母和数字字符，忽略大小写
+   * 只考虑字母和数字字符是否符合规则，忽略大小写
    * e.g. isPlalindromeString('A man, a plan, a canal: Panama') === true, isPlalindromeString('abbc') === false
    * @param str 
    */
@@ -55,7 +55,7 @@ export class Util {
    * @param numbers 
    * @returns 
    */
-  public moveZero(numbers: number[]): number[] {
+  public static moveZero(numbers: number[]): number[] {
     // TODO 请在这里补充
     return [];
   }
@@ -63,7 +63,7 @@ export class Util {
   /**
    * 25 分
    * 大数相加
-   * 需要考虑负数
+   * 只考虑整数，需要考虑负数
    * e.g. addNumber('1000000000000000', '-1000000000000000') === '0
    * @param numstr1 
    * @param numstr2 
