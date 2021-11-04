@@ -26,7 +26,7 @@ export class Util {
    * 15 分
    * 模板引擎
    * {{ xxx }} 是用于替换的内容
-   * e.g. fillText('我是{{ name }}，今年{{ age }}岁', { name: '小明', gender: 18 }) === '我是小明，今年18岁'
+   * e.g. fillText('我是{{ name }}，今年{{ age }}岁', { name: '小明', age: 18 }) === '我是小明，今年18岁'
    * @param template 模板
    * @param data 填充模板的数据
    */
