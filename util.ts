@@ -6,7 +6,7 @@ export class Util {
    * @param value 
    */
   public static isNumber(value: unknown): boolean {
-    // TODO 请在这里补充
+    if(typeof(value)!="number") return false;
     return true;
   }
 
@@ -19,7 +19,35 @@ export class Util {
    */
   public static formatNumber(num: number): string {
     // TODO 请在这里补充
-    return '';
+    let str:string = String(num);
+    let subStr:string;
+    let tempStr:string="";
+    let end:number = 0;
+    //是小数
+    if (Math.trunc(num)!=num) {
+      //找到小数位置
+      end = str.indexOf('.');
+    }
+    else end = str.length;
+    // 判断负数
+    if (str[0]=='-') {
+      subStr = str.slice(1,end);
+    }
+    else subStr = str.slice(0,end);
+    let Len:number = subStr.length;
+    //加分隔符
+    for(let cnt:number = 0,pos = 0;cnt <Math.trunc(Len/3);cnt++){
+      tempStr += ','+ subStr.substr(-3+pos,3);
+      pos-=3;
+    }
+    //拼接最前端
+    subStr = subStr.substr(0,subStr.substr.length % 3)+tempStr;
+    //拼接负号和小数
+    if (str[0]=='-') {
+      str='-'+subStr+str.substr(end,str.length-end);
+    }
+    else  str=subStr+str.substr(end,str.length-end);
+    return str;
   }
 
   /**
@@ -42,9 +70,15 @@ export class Util {
    * e.g. isPlalindromeString('A man, a plan, a canal: Panama') === true, isPlalindromeString('abbc') === false
    * @param str 
    */
-  public static isPlalindromeString(str: string): boolean {
+  public static isPlalindromeString(str: string): /*string8*/boolean {
     // TODO 请在这里补充
-    return false;
+    // 统一大小写
+    let tempstr = str.toLowerCase();
+    // 去掉无关字符
+    tempstr = tempstr.replace(/[^a-zA-Z0-9]/g,'');
+    // 判断回文
+    let strReverse = tempstr.split('').reverse().join('');
+    return  tempstr == strReverse ? true : false;
   }
 
   /**
@@ -56,8 +90,18 @@ export class Util {
    * @returns 
    */
   public static moveZero(numbers: number[]): number[] {
-    // TODO 请在这里补充
-    return [];
+    let arr:number[]=[];
+    let cnt:number = 0;
+    // 提取非零元素
+    for(let key of numbers){
+      if(key!=0)  arr[cnt++] = key;
+    }
+    arr.length = numbers.length;
+    // 填充 0
+    for(;cnt<arr.length;cnt++){
+      arr[cnt] = 0;
+    }
+    return arr;
   }
 
   /**
@@ -70,6 +114,78 @@ export class Util {
    */
   public static addNumber(numstr1: string, numstr2: string): string {
     // TODO 请在这里补充
-    return '0';
+    let len1:number = numstr1.length;
+    let len2:number = numstr2.length;
+    let tempStr1:string = numstr1;
+    let tempStr2:string = numstr2;
+    // 抽取数值位
+    if(numstr1[0] === '-'){
+      len1--;
+      tempStr1 = numstr1.slice(1,numstr1.length);
+    }
+    if(numstr2[0] === '-'){
+      len2--;                                   
+      tempStr2 = numstr2.slice(1,numstr2.length);
+    }
+    // 对齐字符串
+    let maxLen:number = len1>len2? len1:len2;
+    tempStr1 =tempStr1.padStart(maxLen,'0');
+    tempStr2 =tempStr2.padStart(maxLen,'0');
+    
+    let sum:string = '';
+    let t = 0;//本位
+    let f = 0;//进位 借位
+    // 符号位相同 大数相加
+    if((numstr1[0]!='-'&&numstr2[0]!='-')||(numstr1[0]==='-'&&numstr2[0]==='-')){
+      for(let i=maxLen-1 ; i>=0 ; i--){
+        t = parseInt(tempStr1[i]) + parseInt(tempStr2[i]) + f;
+        f = Math.floor(t/10);
+        sum = t%10 + sum;
+     }
+     if(f == 1){
+        sum = "1" + sum;
+     }
+     if(numstr1[0]==='-'&&numstr2[0]==='-'){
+       sum = '-'+ sum;
+     }
+    }
+    // 符号位不同 保证被减数值更大
+    else{
+      if(tempStr1.length<tempStr2.length){
+        let temp = tempStr2;
+        tempStr2 = tempStr1;
+        tempStr1 = temp;
+      }
+      else if(tempStr1.length == tempStr2.length){
+        for(let i = 0;i<maxLen;i++){
+          if(parseInt(tempStr1)==parseInt(tempStr2)){
+            continue;
+          }
+          if(parseInt(tempStr1)>parseInt(tempStr2)){
+            break;
+          }
+          if(parseInt(tempStr1)<parseInt(tempStr2)){
+            let temp = tempStr2;
+            tempStr2 = tempStr1;
+            tempStr1 = temp;
+          }
+        }
+      }
+      f = 0;//借位 
+      // 大数相减
+      for(let i=maxLen-1 ; i>=0 ; i--){
+        t = parseInt(tempStr1[i]) - parseInt(tempStr2[i]) - f;
+        if(t<0){
+          sum = (10+t)+sum;
+          f = 1;
+        }
+        else{
+          sum = t + sum;
+          f = 0;
+        }
+      }
+      if(t==0) sum='0'; 
+    }   
+    return sum;
   }
 }

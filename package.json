@@ -12,5 +12,12 @@
   "devDependencies": {
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://e.coding.net/raintencentstudy/liyuqiao-u201816043/Code_TencentHomework.git"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
   }
 }
