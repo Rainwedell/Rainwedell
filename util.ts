@@ -60,9 +60,16 @@ export class Util {
    */
   public static fillText(template: string, data: object): string {
     // TODO 请在这里补充
-    return '';
+    // 第二时间学习到的方法 原型链
+    return template.replace(/\{\{(.*?)\}\}/g, (match, key) => (data as any)[key.trim()]);
+    // 自己的方法
+    // let tempStr = template;
+    // for (let key in data) {
+    //   let re = new RegExp("{{ " + key + " }}", "g");
+    //   tempStr = tempStr.replace(re, (data as any)[key]);
+    // }
+    // return tempStr;
   }
-
   /**
    * 15 分
    * 判断是否是回文字符串
