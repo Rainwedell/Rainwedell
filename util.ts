@@ -204,6 +204,7 @@ export class Util {
         }
         // return sum;
       }
+      // 加负数除去前置0
       sum = (isMinus ? '-' : '') + sum.replace(/^0+/, '') 
     }   
     return sum;
