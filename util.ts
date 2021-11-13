@@ -140,8 +140,8 @@ export class Util {
     tempStr2 =tempStr2.padStart(maxLen,'0');
     
     let sum:string = '';
-    let t = 0;//本位
-    let f = 0;//进位 借位
+    let t:number = 0;//本位
+    let f:number = 0;//进位 借位
     // 符号位相同 大数相加
     if((numstr1[0]!='-'&&numstr2[0]!='-')||(numstr1[0]==='-'&&numstr2[0]==='-')){
       for(let i=maxLen-1 ; i>=0 ; i--){
@@ -158,10 +158,16 @@ export class Util {
     }
     // 符号位不同 保证被减数值更大
     else{
+      // 先判断两数相等
+      if(tempStr2===tempStr1) return '0';
+      let isMinus = 0;
       if(tempStr1.length<tempStr2.length){
+        if(numstr1[0]=='-') isMinus = 0;
+        else  isMinus = 1;
         let temp = tempStr2;
         tempStr2 = tempStr1;
         tempStr1 = temp;
+        
       }
       else if(tempStr1.length == tempStr2.length){
         for(let i = 0;i<maxLen;i++){
@@ -169,19 +175,28 @@ export class Util {
             continue;
           }
           if(parseInt(tempStr1)>parseInt(tempStr2)){
+            if(numstr1[0]=='-') isMinus = 1;
+            // else isMinus = 0;
             break;
           }
           if(parseInt(tempStr1)<parseInt(tempStr2)){
+            if(numstr1[0]=='-') isMinus = 0;
+            else  isMinus = 1;
             let temp = tempStr2;
             tempStr2 = tempStr1;
             tempStr1 = temp;
           }
         }
       }
+      // return tempStr2;
+      // return String( parseInt(tempStr2[1])) ;
       f = 0;//借位 
       // 大数相减
       for(let i=maxLen-1 ; i>=0 ; i--){
         t = parseInt(tempStr1[i]) - parseInt(tempStr2[i]) - f;
+        // return  (parseInt(tempStr2[i]));
+        // return String (t);
+        // return sum;
         if(t<0){
           sum = (10+t)+sum;
           f = 1;
@@ -190,9 +205,11 @@ export class Util {
           sum = t + sum;
           f = 0;
         }
+        // return sum;
       }
-      if(t==0) sum='0'; 
+      sum = (isMinus ? '-' : '') + sum.replace(/^0+/, '') 
     }   
     return sum;
+
   }
 }
