@@ -77,7 +77,7 @@ export class Util {
    * e.g. isPlalindromeString('A man, a plan, a canal: Panama') === true, isPlalindromeString('abbc') === false
    * @param str 
    */
-  public static isPlalindromeString(str: string): /*string8*/boolean {
+  public static isPlalindromeString(str: string): boolean {
     // TODO 请在这里补充
     // 统一大小写
     let tempstr = str.toLowerCase();
