@@ -160,7 +160,7 @@ export class Util {
     else{
       // 先判断两数相等
       if(tempStr2===tempStr1) return '0';
-      let isMinus = 0;
+      let isMinus = 0;//判断负数
       if(tempStr1.length<tempStr2.length){
         if(numstr1[0]=='-') isMinus = 0;
         else  isMinus = 1;
@@ -188,15 +188,12 @@ export class Util {
           }
         }
       }
-      // return tempStr2;
-      // return String( parseInt(tempStr2[1])) ;
+      
       f = 0;//借位 
       // 大数相减
       for(let i=maxLen-1 ; i>=0 ; i--){
         t = parseInt(tempStr1[i]) - parseInt(tempStr2[i]) - f;
-        // return  (parseInt(tempStr2[i]));
-        // return String (t);
-        // return sum;
+        
         if(t<0){
           sum = (10+t)+sum;
           f = 1;
