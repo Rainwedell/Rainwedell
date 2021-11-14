@@ -24,22 +24,27 @@ import { Util } from "./util";
 // console.log("Util.formatNumber(-10)",Util.formatNumber(-10));
 // console.log("Util.formatNumber(1000000)",Util.formatNumber(1000000));
 
-// console.log("Util.moveZero([0, 2, 0, 14, 8, 0])",Util.moveZero([0, 2, 0, 14, 8, 0]));
-// console.log("Util.moveZero([0, 2, 0, 14, 8, 0])",Util.moveZero([0, 2, 0, 14, 8, 0]));
+console.log("Util.moveZero([0, 2, 0, 14, 8, 0])",Util.moveZero([0, 2, 0, 14, 8, 0]));
+console.log("Util.moveZero([0, 2, 0, 14, 8, 0])",Util.moveZero([0, 2, 0, 14, 8, 0]));
+console.log("Util.moveZero([0, 0, 0, 0, 0, 0])",Util.moveZero([0, 0, 0, 0, 0, 0]));
+console.log("Util.moveZero([0, 0, 0, 0, 0, 0])",Util.moveZero([1, 0, 0, 0, 1, 2]));
+console.log("Util.moveZero([1, 2, 3, 4, 5, 6])",Util.moveZero([1, 2, 3, 4, 5, 6]));
+console.log("Util.moveZero([1, 2, 3, 4, 5, 0])",Util.moveZero([1, 2, 3, 4, 5, 0]));
+console.log("Util.moveZero([1, 2, 3, 4, 5, 0])",Util.moveZero([1, 2, 3, 4, 5, 0]));
 
 
 // // addNumber('1000000000000000', '-1000000000000000')
-console.log("Util.addNumber('1000000000000000', '-1000000000000001')",Util. addNumber('1000000000000000', '-1000000000000001'));
-console.log("Util.addNumber('-1000000000000001', '1000000000000000')",Util. addNumber('-1000000000000001', '1000000000000000'));
-console.log("Util.addNumber('1000000000000000', '-1000000000000000')",Util. addNumber('1000000000000000', '-1000000000000000'));
-console.log("Util.addNumber('-1000000000000000', '-1000000000000000')",Util. addNumber('-1000000000000000', '-1000000000000000'));
-console.log("Util.addNumber('9007199254740991', '1234567899999999999')",Util. addNumber('9007199254740991', '1234567899999999999'));
-console.log("Util.addNumber('-9007199254740991', '-1234567899999999999')",Util. addNumber('-9007199254740991', '-1234567899999999999'));
-console.log("Util.addNumber('-1', '9')",Util. addNumber('-1', '9'));
-console.log("Util.addNumber('-1', '2')",Util. addNumber('-1', '2'));
-console.log("Util.addNumber('1', '-2')",Util. addNumber('1', '-2'));
-console.log("Util.addNumber('1', '-12')",Util. addNumber('1', '-12'));
-console.log("Util.addNumber('-20', '12')",Util. addNumber('-20', '12'));
+// console.log("Util.addNumber('1000000000000000', '-1000000000000001')",Util. addNumber('1000000000000000', '-1000000000000001'));
+// console.log("Util.addNumber('-1000000000000001', '1000000000000000')",Util. addNumber('-1000000000000001', '1000000000000000'));
+// console.log("Util.addNumber('1000000000000000', '-1000000000000000')",Util. addNumber('1000000000000000', '-1000000000000000'));
+// console.log("Util.addNumber('-1000000000000000', '-1000000000000000')",Util. addNumber('-1000000000000000', '-1000000000000000'));
+// console.log("Util.addNumber('9007199254740991', '1234567899999999999')",Util. addNumber('9007199254740991', '1234567899999999999'));
+// console.log("Util.addNumber('-9007199254740991', '-1234567899999999999')",Util. addNumber('-9007199254740991', '-1234567899999999999'));
+// console.log("Util.addNumber('-1', '9')",Util. addNumber('-1', '9'));
+// console.log("Util.addNumber('-1', '2')",Util. addNumber('-1', '2'));
+// console.log("Util.addNumber('1', '-2')",Util. addNumber('1', '-2'));
+// console.log("Util.addNumber('1', '-12')",Util. addNumber('1', '-12'));
+// console.log("Util.addNumber('-20', '12')",Util. addNumber('-20', '12'));
 
 
 // isPlalindromeString('A man, a plan, a canal: Panama')
