@@ -6,7 +6,7 @@
 import { Util } from "./util";
 
 // 同学们可以通过简单的调用来验证函数，如：
-console.log('Util.isNumber(11)', Util.isNumber(11));
+// console.log('Util.isNumber(11)', Util.isNumber(11));
 // console.log('Util.isNumber(\'0\')', Util.isNumber('0'));
 // console.log('Util.isNumber(Infinity)', Util.isNumber(Infinity));
 // console.log('Util.isNumber(NAN))', Util.isNumber(NaN));
