@@ -49,7 +49,7 @@
         updateUser = () => {
           console.log(this);
           this.setState({
-            isLogin: true,
+            isLogin: !this.state.isLogin,
           });
         };
         // render表示的是渲染
@@ -58,20 +58,20 @@
           // const isLogin = this.state.isLogin;
           // 解构的方式
           const { isLogin } = this.state;
-          let button;
-          if (isLogin) {
-            button = <Login />;
-          } else {
-            button = <Logout />;
-          }
+          // let button;
+          // if (isLogin) {
+          //   button = <Login />;
+          // } else {
+          //   button = <Logout />;
+          // }
           return (
             // 下面是一个属性 updateU ，值等于
             <div>
               <h1>Hello,{this.state.name}</h1>
               {isLogin ? (
-                <Login updateU={this.updateUser} />
-              ) : (
                 <Logout updateU={this.updateUser} />
+              ) : (
+                <Login updateU={this.updateUser} />
               )}
               <button onClick={this.updateUser}>更新数据 </button>
             </div>
