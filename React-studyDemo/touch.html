@@ -46,13 +46,13 @@
         }
         updateUser = () => {
           this.setState({
-            name: Rain,
-            age: 32,
+            name: "Rain",
+            age: 20,
           });
         };
         shouldComponentUpdate() {
           console.log("数据是否需要更新");
-          return ture;
+          return true;
         }
         componentWillUpdate() {
           console.log("数据将要更新");
@@ -67,7 +67,7 @@
               <h1>Hello,{this.state.name}</h1>
               <p>年龄,{this.state.age}</p>
               <p>擅长java</p>
-              <button onClick={this.updateUser} />
+              <button onClick={this.updateUser}>更新数据 </button>
             </div>
           );
         }
