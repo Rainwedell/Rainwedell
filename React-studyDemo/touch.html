@@ -28,13 +28,16 @@
             </div>
 
         }
-        function Hello(props) {
-            return <div>
-            <h1>Hello,{props.name}</h1>
-            <p>年龄:{props.age}</p>
-            <p>擅长:Coding</p>
-            </div>;
-
+        
+        class Hello extends React.Component{ 
+            
+            render(){
+                return <div>
+                <h1>Hello,{this.props.name}</h1>
+                <p>年龄:{this.props.age}</p>
+                <p>擅长:Coding</p>
+                </div>;
+                }
         }
         ReactDOM.render(
         <Hello name = "Jack" age = "30"/>
