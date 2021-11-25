@@ -1,46 +1,55 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- <script src="./node_modules\react\umd\react.development.js"></script>
     <script src="./node_modules/react-dom/umd/react-dom.development.js"></script> -->
     <title>React-Demo</title>
     <style>
-        .red {
-            color: red;
-        }
+      .red {
+        color: red;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app"></div>
     <script type="text/babel">
-        function tick() {
-            let time = new Date().toLocaleTimeString();
-            let ele = <div>
-                
-                <h2>今天是，{time}</h2>
-            </div>
-
-        }
-        function Hello(props) {
-            return <div>
+      function tick() {
+        let time = new Date().toLocaleTimeString();
+        let ele = (
+          <div>
+            <h2>今天是，{time}</h2>
+          </div>
+        );
+      }
+      // props是一个对象，即传入一个对象，对象的属性保存了需要的数据，组件本身是处理这些数据的方法
+      function Hello(props) {
+        return (
+          <div>
             <h1>Hello,{props.name}</h1>
             <p>年龄:{props.age}</p>
             <p>擅长:Coding</p>
-            </div>;
-
-        }
-        ReactDOM.render(
-        <Hello name = "Jack" age = "30"/>
-        , document.getElementById('app'));
-
+          </div>
+        );
+      }
+      ReactDOM.render(
+        <Hello name="Jack" age="30" />,
+        document.getElementById("app")
+      );
     </script>
-</body>
-
+  </body>
 </html>
