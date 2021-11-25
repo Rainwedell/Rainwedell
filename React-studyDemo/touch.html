@@ -23,13 +23,21 @@
         function tick() {
             let time = new Date().toLocaleTimeString();
             let ele = <div>
-                <h1 className="red" name="jack">hello</h1>
+                
                 <h2>今天是，{time}</h2>
             </div>
 
         }
+        function Hello(props) {
+            return <div>
+            <h1>Hello,{props.name}</h1>
+            <p>年龄:{props.age}</p>
+            <p>擅长:Coding</p>
+            </div>;
+
+        }
         ReactDOM.render(
-        ele
+        <Hello name = "Jack" age = "30"/>
         , document.getElementById('app'));
 
     </script>
