@@ -36,8 +36,10 @@
           </div>
         );
       }
+      // 2.react调用 Hello组件 并把 {name="Jack" age="30"}这个保存了数据的对象作为props的实参传入
       // props是一个对象，即传入一个对象，对象的属性保存了需要的数据，组件本身是处理这些数据的方法
       function Hello(props) {
+        // 3.下面的作为返回值
         return (
           <div>
             <h1>Hello,{props.name}</h1>
@@ -46,6 +48,8 @@
           </div>
         );
       }
+      // 1.首先调用 这个函数，并把  <Hello name="Jack" age="30" />传入作为参数
+      // 4.render函数渲染把dom更新
       ReactDOM.render(
         <Hello name="Jack" age="30" />,
         document.getElementById("app")
