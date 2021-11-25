@@ -35,50 +35,39 @@
         return <button onClick={props.updateU}>Logout</button>;
       }
       // 1.这个类的组件上面定义状态和处理数据（状态）的方法
-      class Hello extends React.Component {
-        // constructor(props) {
-        //   super(props);
-        //   this.state = {
-        //     isLogin:false
-        //   };
-
-        // }
+      class List extends React.Component {
         state = {
-          isLogin: false,
+          // list: [1, 2, 3, 4, 5],
+          list: [
+            { id: 1, text: "java" },
+            { id: 2, text: "javaScript" },
+            { id: 3, text: "python" },
+            { id: 4, text: "php" },
+            { id: 5, text: "node" },
+          ],
         };
-        updateUser = () => {
-          console.log(this);
-          this.setState({
-            isLogin: !this.state.isLogin,
-          });
-        };
+
         // render表示的是渲染
         // renturn表示的是渲染回去的形式
         render() {
-          // const isLogin = this.state.isLogin;
-          // 解构的方式
-          const { isLogin } = this.state;
-          // let button;
-          // if (isLogin) {
-          //   button = <Login />;
-          // } else {
-          //   button = <Logout />;
+          const arr = this.state.list;
+          const listItem = [];
+          arr.map((item) => {
+            let li = <li key={item.id}>{item.text}</li>;
+            listItem.push(li);
+          });
+          // for (let index = 0; index < arr.length; index++) {
+          //   let li = <li key={arr[index].id}>{arr[index].text}</li>;
+          //   listItem.push(li);
           // }
           return (
-            // 下面是一个属性 updateU ，值等于
             <div>
-              <h1>Hello,{this.state.name}</h1>
-              {isLogin ? (
-                <Logout updateU={this.updateUser} />
-              ) : (
-                <Login updateU={this.updateUser} />
-              )}
-              <button onClick={this.updateUser}>更新数据 </button>
+              <ul>{listItem}</ul>
             </div>
           );
         }
       }
-      ReactDOM.render(<Hello />, document.getElementById("app"));
+      ReactDOM.render(<List />, document.getElementById("app"));
     </script>
   </body>
 </html>
