@@ -54,6 +54,12 @@
           console.log("数据是否需要更新");
           return ture;
         }
+        componentWillUpdate() {
+          console.log("数据将要更新");
+        }
+        componentDidUpdate() {
+          console.log("数据已经更新");
+        }
         render() {
           console.log("组件加载或者数据更新");
           return (
