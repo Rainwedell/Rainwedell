@@ -37,6 +37,7 @@
             name: "jack",
             age: 31,
           };
+          // this.updateUser = this.updateUser.bind(this);
         }
         componentWillMount() {
           console.log("组件加载前");
@@ -45,21 +46,13 @@
           console.log("组件加载后");
         }
         updateUser = () => {
+          console.log(this);
           this.setState({
             name: "Rain",
             age: 20,
           });
         };
-        shouldComponentUpdate() {
-          console.log("数据是否需要更新");
-          return true;
-        }
-        componentWillUpdate() {
-          console.log("数据将要更新");
-        }
-        componentDidUpdate() {
-          console.log("数据已经更新");
-        }
+
         render() {
           console.log("组件加载或者数据更新");
           return (
