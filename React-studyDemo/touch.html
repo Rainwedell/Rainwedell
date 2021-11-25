@@ -1,35 +1,38 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@16/umd/react.development.js"crossorigin="anonymous" ></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js" crossorigin="anonymous"></script>
     <!-- <script src="./node_modules\react\umd\react.development.js"></script>
     <script src="./node_modules/react-dom/umd/react-dom.development.js"></script> -->
     <title>React-Demo</title>
     <style>
-        .red{
+        .red {
             color: red;
         }
     </style>
 </head>
+
 <body>
     <div id="app"></div>
-    <script type ="text/babel">
+    <script type="text/babel">
         function tick() {
-        let time = new Date().toLocaleTimeString();
-        let ele = <div>
-            <h1 className="red" name="jack">hello</h1>
-            <h2>今天是，{time}</h2>
+            let time = new Date().toLocaleTimeString();
+            let ele = <div>
+                <h1 className="red" name="jack">hello</h1>
+                <h2>今天是，{time}</h2>
             </div>
-        ReactDOM.render(
-            ele
-            ,document.getElementById('app'));
+
         }
-        setInterval(tick,1000);
-      
+        ReactDOM.render(
+        ele
+        , document.getElementById('app'));
+
     </script>
 </body>
+
 </html>
