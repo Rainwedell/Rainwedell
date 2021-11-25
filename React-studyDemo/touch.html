@@ -28,38 +28,49 @@
   <body>
     <div id="app"></div>
     <script type="text/babel">
+      function Login(props) {
+        return <button onClick={props.updateU}>Login</button>;
+      }
+      function Logout(props) {
+        return <button onClick={props.updateU}>Logout</button>;
+      }
       class Hello extends React.Component {
-        constructor(props) {
-          // 初始化props
-          super(props);
-          // 初始化状态
-          this.state = {
-            name: "jack",
-            age: 31,
-          };
-          // this.updateUser = this.updateUser.bind(this);
-        }
-        componentWillMount() {
-          console.log("组件加载前");
-        }
-        componentDidMount() {
-          console.log("组件加载后");
-        }
+        // constructor(props) {
+        //   super(props);
+        //   this.state = {
+        //     isLogin:false
+        //   };
+
+        // }
+        state = {
+          isLogin: false,
+        };
         updateUser = () => {
           console.log(this);
           this.setState({
-            name: "Rain",
-            age: 20,
+            isLogin: true,
           });
         };
-
+        // render表示的是渲染
         render() {
-          console.log("组件加载或者数据更新");
+          // const isLogin = this.state.isLogin;
+          // 解构的方式
+          const { isLogin } = this.state;
+          let button;
+          if (isLogin) {
+            button = <Login />;
+          } else {
+            button = <Logout />;
+          }
           return (
+            // 下面是一个属性 updateU ，值等于
             <div>
               <h1>Hello,{this.state.name}</h1>
-              <p>年龄,{this.state.age}</p>
-              <p>擅长java</p>
+              {isLogin ? (
+                <Login updateU={this.updateUser} />
+              ) : (
+                <Logout updateU={this.updateUser} />
+              )}
               <button onClick={this.updateUser}>更新数据 </button>
             </div>
           );
