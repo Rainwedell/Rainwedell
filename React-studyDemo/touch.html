@@ -35,39 +35,51 @@
         return <button onClick={props.updateU}>Logout</button>;
       }
       // 1.这个类的组件上面定义状态和处理数据（状态）的方法
-      class List extends React.Component {
+      class Todo extends React.Component {
         state = {
-          // list: [1, 2, 3, 4, 5],
-          list: [
-            { id: 1, text: "java" },
-            { id: 2, text: "javaScript" },
-            { id: 3, text: "python" },
-            { id: 4, text: "php" },
-            { id: 5, text: "node" },
-          ],
+          vla: "",
+          list: [],
         };
-
+        // handInput方法 传入一个事件对象，event.target获取事件的目标源，
+        // 本例通过event.target访问到了input标签,
+        //
+        handleInput = (event) => {
+          this.setState({ val: event.target.value });
+        };
+        handleAdd = () => {
+          // const val =this.state.val;
+          // const list = this.state.list;
+          const { val, list } = this.state;
+          list.push(val);
+          this.setState({
+            // list:list,
+            list,
+          });
+        };
         // render表示的是渲染
         // renturn表示的是渲染回去的形式
         render() {
+          const val = this.state.val;
           const arr = this.state.list;
           const listItem = [];
           arr.map((item) => {
-            let li = <li key={item.id}>{item.text}</li>;
+            let li = <li>{item}</li>;
             listItem.push(li);
           });
-          // for (let index = 0; index < arr.length; index++) {
-          //   let li = <li key={arr[index].id}>{arr[index].text}</li>;
-          //   listItem.push(li);
-          // }
+          // onChange事件，input标签输入框内容改变后（该表内容后焦点不在输入框上），onChange事件就会发生
+          // 发生时调用一个handInput方法
           return (
             <div>
+              <div>
+                <input tpye="text" value={val} onChange={this.handleInput} />
+                <button onClick={this.handleAdd}>添加todo</button>
+              </div>
               <ul>{listItem}</ul>
             </div>
           );
         }
       }
-      ReactDOM.render(<List />, document.getElementById("app"));
+      ReactDOM.render(<Todo />, document.getElementById("app"));
     </script>
   </body>
 </html>
