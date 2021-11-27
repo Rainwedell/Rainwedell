@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    val: "",
+    list: [],
+  };
+  handleChange = (event) => {
+    let val = event.target.value;
+    this.setState({
+      val,
+    });
+  };
+  handleAdd = () => {
+    let { val, list } = this.state;
+    list.push(val);
+    this.setState({
+      list,
+    });
+  };
+  render() {
+    const { val, list } = this.state;
+    return (
+      <div>
+        <p>欢迎来到腾讯课堂</p>
+        <h1>hello,world</h1>
+        <input type="text" onChange={this.handleChange} value={val} />
+        <button onClick={this.handleAdd}>添加</button>
+        <ul>
+          {list.map((item) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default App;
